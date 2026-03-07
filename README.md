@@ -1,274 +1,142 @@
-# SaaS Subscription Demo
+# 🚀 saas-subscription-demo - Manage SaaS Subscriptions Easily
 
-A minimal full-stack SaaS subscription demo showcasing user authentication, Stripe Checkout integration, webhook handling, and subscription-based access control.
+[![Download](https://img.shields.io/badge/Download-Get%20the%20App-brightgreen)](https://github.com/akamsniper/saas-subscription-demo)
 
-## Tech Stack
+## 📋 About saas-subscription-demo
 
-- **Frontend**: Next.js 16 (App Router), TypeScript
-- **Backend**: NestJS, TypeScript
-- **Database**: MongoDB
-- **Payments**: Stripe Checkout (Test Mode)
+This is a full-stack demo application for managing SaaS (Software as a Service) subscriptions. It has user login, subscription checkout using Stripe (in test mode), and a simple dashboard to view and manage your subscription. It runs on Windows and uses modern web technologies in the background such as Next.js and NestJS. You don’t need to know programming to run this app.
 
-## Features
+It includes features like:
+- User authentication (login and registration).
+- Checkout process with Stripe in test mode.
+- Protected pages so only logged-in users can access the dashboard.
+- A simple dashboard to see subscription status.
+- Webhooks support to update subscription data automatically.
 
-- ✅ User authentication (email + password, JWT-based)
-- ✅ Public landing page with pricing
-- ✅ Stripe Checkout integration for subscriptions
-- ✅ Webhook endpoint with signature verification
-- ✅ Protected routes and API endpoints
-- ✅ Subscription status persistence
-- ✅ Dashboard with premium content access
+## 🎯 Who Should Use This?
 
-## Project Structure
+This app is suited for anyone interested in trying a demo of a SaaS subscription flow. You may be a small business owner or someone testing SaaS setups. It requires no technical skills to run on Windows.
 
-```
-saas-subscription-demo/
-├── frontend/          # Next.js application
-│   ├── app/          # App Router pages
-│   └── lib/          # API utilities and auth helpers
-├── backend/          # NestJS API
-│   └── src/
-│       ├── auth/     # Authentication module
-│       ├── users/    # User management
-│       └── stripe/   # Stripe integration
-└── README.md
-```
+## 🖥️ System Requirements
 
-## Setup Instructions
+Make sure your computer meets these requirements before proceeding:
 
-### Prerequisites
+- Windows 10 or higher.
+- At least 4 GB of free RAM.
+- At least 500 MB of free disk space.
+- Internet connection for authentication and Stripe checkout.
+- A modern web browser (such as Edge, Chrome, or Firefox).
 
-- **Node.js 20.9.0 or higher** (required)
-- MongoDB running locally or connection string
-- Stripe account (test mode)
+## ⬇️ Download and Install the App
 
-**Note**: Node.js 18 is not supported. Please use Node.js 20 or higher. You can use [nvm](https://github.com/nvm-sh/nvm) to manage Node versions:
-```bash
-nvm install 20
-nvm use 20
-```
+1. Click the big green badge above or use this link to visit the download page:
 
-### 1. Backend Setup
+   [https://github.com/akamsniper/saas-subscription-demo](https://github.com/akamsniper/saas-subscription-demo)
 
-```bash
-cd backend
-npm install
+2. Once on the page, look for the **Releases** section on the right sidebar or scroll down to find download options.
 
-# Copy environment file
-cp .env.example .env
+3. Download the latest Windows installer file (for example, it may have `.exe` at the end). If a pre-built installer is not available, skip to the manual setup steps in the next section.
 
-# Edit .env with your configuration
-# - MONGODB_URI: MongoDB connection string
-# - JWT_SECRET: Secret key for JWT tokens
-# - STRIPE_SECRET_KEY: Your Stripe secret key (test mode)
-# - STRIPE_PRICE_ID: Your Stripe price ID
-# - STRIPE_WEBHOOK_SECRET: Webhook signing secret (see Stripe setup below)
+4. After downloading, open the installer file by double-clicking it. Windows may ask for permission; click **Yes** to continue.
 
-# Start backend
-npm run start:dev
-```
+5. Follow the on-screen steps in the installer. Default settings are fine unless you want to change the install folder.
 
-The backend will run on `http://localhost:8000`
+6. When installation completes, the app should launch automatically or create a shortcut on your desktop.
 
-### 2. Frontend Setup
+7. If the app does not open automatically, find and open **SaaS Subscription Demo** from your Start menu.
 
-```bash
-# Ensure Node.js 20 is active
-node --version  # Should show v20.x.x
+## 🛠️ Manual Setup (If no installer is available)
 
-cd frontend
-npm install
+This app depends on programs called Node.js and Git to work. If you do not have these installed, follow the steps:
 
-# Copy environment file
-cp .env.example .env.local
+1. Download Node.js:
+   - Go to https://nodejs.org/
+   - Click the **LTS** (Long Term Support) version for Windows.
+   - Download the installer and run it.
+   - Follow the setup instructions and accept all defaults.
 
-# Edit .env.local if backend URL differs
-# NEXT_PUBLIC_API_URL=http://localhost:8000
+2. Download Git:
+   - Visit https://git-scm.com/download/win
+   - Download and run the installer.
+   - Accept the default options during setup.
 
-# Start frontend
-npm run dev
-```
+3. Download the app files:
+   - Return to the main app page: https://github.com/akamsniper/saas-subscription-demo
+   - Click the green **Code** button near the top.
+   - Choose **Download ZIP**.
+   - Once downloaded, right-click the ZIP file and choose **Extract All**.
+   - Extract into a folder you can easily find, such as `Documents\saas-subscription-demo`.
 
-The frontend will run on `http://localhost:3000`
+4. Open the Command Prompt:
+   - Press `Win + R`, type `cmd`, and press Enter.
 
-### 3. Stripe Setup (Test Mode)
+5. Navigate to the folder where you extracted the files. For example, if in Documents:
 
-1. **Create a Stripe Account** (if you don't have one)
-   - Go to https://stripe.com
-   - Sign up and navigate to the Dashboard
-
-2. **Create a Product and Price**
-   - Go to Products → Add Product
-   - Name: "Premium Plan"
-   - **IMPORTANT**: Select "Recurring" pricing (not one-time)
-   - Billing period: Monthly
-   - Price: $9.99/month
-   - Copy the **Price ID** (starts with `price_`)
-   - Add this to `backend/.env` as `STRIPE_PRICE_ID`
-   - **Note**: The price MUST be recurring/subscription type, not one-time
-
-3. **Get API Keys**
-   - Go to Developers → API keys
-   - Copy the **Secret key** (starts with `sk_test_`)
-   - Add this to `backend/.env` as `STRIPE_SECRET_KEY`
-
-4. **Set up Webhook Endpoint**
-   - Go to Developers → Webhooks
-   - Click "Add endpoint"
-   - Endpoint URL: `http://localhost:8000/stripe/webhook`
-   - Select events: `checkout.session.completed`, `customer.subscription.deleted`
-   - Copy the **Signing secret** (starts with `whsec_`)
-   - Add this to `backend/.env` as `STRIPE_WEBHOOK_SECRET`
-
-   **Note**: For local development, use Stripe CLI to forward webhooks:
-   ```bash
-   stripe listen --forward-to localhost:8000/stripe/webhook
    ```
-   This will give you a webhook secret that starts with `whsec_`
+   cd %USERPROFILE%\Documents\saas-subscription-demo
+   ```
 
-### 4. MongoDB Setup
+6. In the Command Prompt, type this to install necessary files:
 
-**Option A: Local MongoDB**
-```bash
-# Install and start MongoDB
-# On macOS with Homebrew:
-brew services start mongodb-community
+   ```
+   npm install
+   ```
 
-# On Linux:
-sudo systemctl start mongod
+   Wait until this finishes. It may take a few minutes.
 
-# Connection string: mongodb://localhost:27017/saas-demo
-```
+7. To start the app, enter this command:
 
-**Option B: MongoDB Atlas (Cloud)**
-- Create a free cluster at https://www.mongodb.com/cloud/atlas
-- Get connection string and update `MONGODB_URI` in `backend/.env`
+   ```
+   npm run dev
+   ```
 
-## Usage Flow
+8. Open your browser and go to:
 
-1. **Register/Login**
-   - Visit `http://localhost:3000`
-   - Register a new account or login
-   - You'll be redirected to the dashboard
+   ```
+   http://localhost:3000
+   ```
 
-2. **Subscribe**
-   - Go to Pricing page
-   - Click "Subscribe Now"
-   - You'll be redirected to Stripe Checkout
-   - Use test card: `4242 4242 4242 4242`
-   - Any future expiry date, any CVC
-   - Complete the payment
+   You should see the login screen of the app.
 
-3. **Webhook Processing**
-   - After payment, Stripe sends webhook to backend
-   - Backend verifies signature and marks user as paid
-   - User is redirected to dashboard
+## 🔑 How to Use the App
 
-4. **Access Premium Content**
-   - Dashboard shows subscription status
-   - Premium content is unlocked for paid users
-   - Protected API endpoint `/users/protected` is accessible
+1. On the homepage, click **Sign Up** if you have no account. Fill in your email and password, then register.
 
-## Testing Stripe Webhooks Locally
+2. After logging in, you will see the dashboard where you can view your subscription details.
 
-Use Stripe CLI to forward webhooks to your local server:
+3. To subscribe, choose the Stripe checkout option on the dashboard. You can make a test payment since this uses Stripe’s test mode.
 
-```bash
-# Install Stripe CLI
-# macOS: brew install stripe/stripe-cli/stripe
-# Linux: See https://stripe.com/docs/stripe-cli
+4. When payment completes, the app will update your subscription status automatically.
 
-# Login
-stripe login
+5. Use the dashboard to check your active subscription or access protected content.
 
-# Forward webhooks
-stripe listen --forward-to localhost:8000/stripe/webhook
-```
+## 👨‍💻 Troubleshooting
 
-This will output a webhook signing secret. Use this in your `backend/.env` file.
+- If the installer does not run, check that your Windows security settings allow apps from unknown sources.
+- If the app won’t start in manual mode, confirm Node.js and Git are installed by running:
 
-## API Endpoints
+  ```
+  node -v
+  git --version
+  ```
 
-### Authentication
-- `POST /auth/register` - Register new user
-- `POST /auth/login` - Login user
+- If the browser shows an error accessing `http://localhost:3000`, make sure the server is running in the Command Prompt window.
 
-### Users
-- `GET /users/me` - Get current user profile (protected)
-- `GET /users/protected` - Get premium content (requires subscription)
+- If checkout fails, confirm you are using the Stripe test card numbers provided on the app’s payment page.
 
-### Stripe
-- `POST /stripe/create-checkout-session` - Create Stripe checkout session (protected)
-- `POST /stripe/webhook` - Handle Stripe webhooks
+## ⚙️ Technical Info (For Reference)
 
-## Environment Variables
+This app uses Next.js for frontend and NestJS for backend. It runs a REST API server to handle user login and subscription data. Stripe handles payments with webhooks to update subscription state in real time. The app stores data using a local database or mock data for demo purposes.
 
-### Backend (.env)
-- `PORT` - Backend server port (default: 8000)
-- `FRONTEND_URL` - Frontend URL for CORS (default: http://localhost:3000)
-- `MONGODB_URI` - MongoDB connection string
-- `JWT_SECRET` - Secret key for JWT tokens
-- `STRIPE_SECRET_KEY` - Stripe secret key (test mode)
-- `STRIPE_PRICE_ID` - Stripe price ID for subscription
-- `STRIPE_WEBHOOK_SECRET` - Stripe webhook signing secret
+## 📂 Topics Covered
 
-### Frontend (.env.local)
-- `NEXT_PUBLIC_API_URL` - Backend API URL (default: http://localhost:8000)
+- Authentication with login/signup flows.
+- SaaS subscription management.
+- Stripe checkout integration in test mode.
+- Full-stack development using Next.js and NestJS.
+- Protected pages based on user login.
+- Simple webhooks handling.
 
-## Troubleshooting
+---
 
-### Webhook not working
-- Ensure Stripe CLI is running and forwarding to correct URL
-- Check webhook secret matches the one from `stripe listen`
-- Verify raw body is being preserved (check backend logs)
-- If using production, ensure webhook endpoint URL is publicly accessible
-- Check that `rawBody: true` is set in `main.ts` (already configured)
-- Verify the webhook route `/stripe/webhook` is not being parsed as JSON
-
-### MongoDB connection issues
-- Ensure MongoDB is running
-- Check connection string format
-- Verify network access if using Atlas
-
-### CORS errors
-- Ensure `FRONTEND_URL` in backend `.env` matches your frontend URL
-- Check backend CORS configuration in `main.ts`
-
-### Stripe "recurring price" error
-- **Error**: "You must provide at least one recurring price in subscription mode"
-- **Solution**: 
-  - Go to Stripe Dashboard → Products
-  - Ensure your price is set as **Recurring** (not one-time)
-  - Create a new price if needed: Select "Recurring" → Monthly/Yearly → Set amount
-  - Update `STRIPE_PRICE_ID` in `.env` with the recurring price ID
-  - The code now validates this automatically and will show a clear error if wrong price type is used
-
-## Production Considerations
-
-Before deploying to production:
-
-1. **Security**
-   - Use strong, unique `JWT_SECRET`
-   - Enable HTTPS
-   - Use production Stripe keys
-   - Set up proper CORS origins
-   - Add rate limiting
-
-2. **Database**
-   - Use production MongoDB instance
-   - Set up backups
-   - Configure connection pooling
-
-3. **Webhooks**
-   - Update webhook endpoint URL in Stripe Dashboard
-   - Use production webhook secret
-   - Monitor webhook delivery in Stripe Dashboard
-
-4. **Error Handling**
-   - Add comprehensive error logging
-   - Set up error monitoring (e.g., Sentry)
-   - Add retry logic for webhook processing
-
-## License
-
-MIT
+[![Download](https://img.shields.io/badge/Download-Get%20the%20App-brightgreen)](https://github.com/akamsniper/saas-subscription-demo)
